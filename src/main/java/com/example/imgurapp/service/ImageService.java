@@ -96,9 +96,9 @@ public class ImageService {
      * @param user    the user requesting the deletion
      * @throws RuntimeException if the image is not found or the deletion fails
      */
-    public void deleteImage(String imgurId, User user) {
+    public void deleteImage(String deleteHash, User user) {
         // Retrieve the image from the database
-        Image image = imageRepository.findByImgurIdAndUser(imgurId, user)
+        Image image = imageRepository.findByDeleteHashAndUser(deleteHash, user)
                 .orElseThrow(() -> new RuntimeException("Image not found."));
 
         // Set the Authorization header with Client-ID for Imgur API

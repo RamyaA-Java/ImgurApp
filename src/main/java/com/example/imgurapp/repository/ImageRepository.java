@@ -13,7 +13,7 @@ public interface ImageRepository extends JpaRepository<Image, Long> {
     List<Image> findByUser(User user);
 
     // Find an image by its Imgur ID and associated user
-    Optional<Image> findByImgurIdAndUser(String imgurId, User user);
+    Optional<Image> findByDeleteHashAndUser(String imgurId, User user);
 
     // Get a single image by user and imgurId
     Optional<Image> findOneByImgurIdAndUser(String imgurId, User user);
